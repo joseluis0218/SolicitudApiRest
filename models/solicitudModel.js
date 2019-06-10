@@ -3,6 +3,7 @@ let mongoose = require('mongoose');
 Schema = mongoose.Schema;
 
 let dataSchema = new Schema({
+_id : {type: String},
 	solicitante : {type: String, require : true},
 	descripcion : {type: String, require: true},
 	fecha : {type: String, require : true},

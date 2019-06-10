@@ -18,10 +18,11 @@ module.exports = {
 		let obj = new model;
 		console.log(req.body);
 		let fecha = req.body.fecha;
+obj._id = req.body._id;
 		obj.solicitante = req.body.solicitante;
 		obj.descripcion = req.body.descripcion;
 		obj.tipo = req.body.tipo;
-		obj.fecha = moment(fecha.format("DD/MM/YYYY"));
+		obj.fecha = moment(fecha).format("DD/MM/YYYY");
 		obj.notificacion = req.body.notificacion;
 
 		obj.save(function(err, newData){
@@ -48,11 +49,12 @@ module.exports = {
 
 	update : function(req,res){
 		var id = req.params.id;
+		var fecha = req.body.fecha;
 		let datos = {
 			solicitante : req.body.solicitante,
 			descripcion : req.body.descripcion,
 			tipo : req.body.tipo,
-			fecha : req.body.fecha,
+			fecha : moment(fecha).format("DD/MM/YYYY"),
 			notificacion : req.body.notificacion
 		};
 
